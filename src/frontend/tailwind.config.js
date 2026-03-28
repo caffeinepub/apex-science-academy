@@ -1,129 +1,79 @@
-import typography from "@tailwindcss/typography";
-import containerQueries from "@tailwindcss/container-queries";
-import animate from "tailwindcss-animate";
-
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: ["index.html", "src/**/*.{js,ts,jsx,tsx,html,css}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        sans: ['Poppins', 'sans-serif'],
-      },
       colors: {
-        navy: {
-          DEFAULT: '#0A192F',
-          50: '#E8EEF4',
-          100: '#C5D4E4',
-          200: '#8FACC8',
-          300: '#5A85AC',
-          400: '#2E5F8F',
-          500: '#0A192F',
-          600: '#081424',
-          700: '#060F1A',
-          800: '#040A11',
-          900: '#020508',
-        },
-        orange: {
-          DEFAULT: '#F97316',
-          50: '#FFF7ED',
-          100: '#FFEDD5',
-          200: '#FED7AA',
-          300: '#FDBA74',
-          400: '#FB923C',
-          500: '#F97316',
-          600: '#EA580C',
-          700: '#C2410C',
-          800: '#9A3412',
-          900: '#7C2D12',
-        },
-        border: "oklch(var(--border))",
-        input: "oklch(var(--input))",
-        ring: "oklch(var(--ring) / <alpha-value>)",
         background: "oklch(var(--background))",
         foreground: "oklch(var(--foreground))",
-        primary: {
-          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
-          foreground: "oklch(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
-          foreground: "oklch(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "oklch(var(--destructive) / <alpha-value>)",
-          foreground: "oklch(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
-          foreground: "oklch(var(--muted-foreground) / <alpha-value>)",
-        },
-        accent: {
-          DEFAULT: "oklch(var(--accent) / <alpha-value>)",
-          foreground: "oklch(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "oklch(var(--popover))",
-          foreground: "oklch(var(--popover-foreground))",
-        },
         card: {
           DEFAULT: "oklch(var(--card))",
           foreground: "oklch(var(--card-foreground))",
         },
-        chart: {
-          1: "oklch(var(--chart-1))",
-          2: "oklch(var(--chart-2))",
-          3: "oklch(var(--chart-3))",
-          4: "oklch(var(--chart-4))",
-          5: "oklch(var(--chart-5))",
+        primary: {
+          DEFAULT: "oklch(var(--primary))",
+          foreground: "oklch(var(--primary-foreground))",
         },
-        sidebar: {
-          DEFAULT: "oklch(var(--sidebar))",
-          foreground: "oklch(var(--sidebar-foreground))",
-          primary: "oklch(var(--sidebar-primary))",
-          "primary-foreground": "oklch(var(--sidebar-primary-foreground))",
-          accent: "oklch(var(--sidebar-accent))",
-          "accent-foreground": "oklch(var(--sidebar-accent-foreground))",
-          border: "oklch(var(--sidebar-border))",
-          ring: "oklch(var(--sidebar-ring))",
+        secondary: {
+          DEFAULT: "oklch(var(--secondary))",
+          foreground: "oklch(var(--secondary-foreground))",
         },
+        muted: {
+          DEFAULT: "oklch(var(--muted))",
+          foreground: "oklch(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "oklch(var(--accent))",
+          foreground: "oklch(var(--accent-foreground))",
+        },
+        border: "oklch(var(--border))",
+        input: "oklch(var(--input))",
+        ring: "oklch(var(--ring))",
+        // Aura brand palette
+        cream: "#FEF9E6",
+        taupe: "#A78A6F",
+        terracotta: "#E07A5F",
+        brown: "#3E2C1F",
+        beige: "#F3E8CF",
+        "border-warm": "#D8C7AE",
+      },
+      fontFamily: {
+        serif: ["Playfair Display", "Georgia", "serif"],
+        sans: ["Lato", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        "2xl": "1rem",
-        "3xl": "1.5rem",
       },
       boxShadow: {
-        xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        card: "0 4px 24px rgba(10,25,47,0.08)",
-        "card-hover": "0 12px 40px rgba(10,25,47,0.16)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+        warm: "0 4px 24px rgba(62,44,31,0.08)",
+        "warm-lg": "0 8px 40px rgba(62,44,31,0.13)",
+        "warm-xl": "0 16px 60px rgba(62,44,31,0.18)",
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fadeUp 0.7s ease both",
+        "fade-in": "fadeIn 0.6s ease both",
+        float: "float 6s ease-in-out infinite",
+        "float-slow": "float 9s ease-in-out infinite",
+        "float-fast": "float 4s ease-in-out infinite",
+      },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-18px) rotate(8deg)" },
+        },
       },
     },
   },
-  plugins: [typography, containerQueries, animate],
+  plugins: [require("tailwindcss-animate")],
 };
